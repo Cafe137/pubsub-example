@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { pubSub } from './GlobalState'
+import { pubSub } from '../GlobalState'
 
 export function ChatInput() {
     const [value, setValue] = useState<string>('')
