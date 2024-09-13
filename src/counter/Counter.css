@@ -1,0 +1,61 @@
+.animate-decrease {
+    animation: decrease 2.5s linear;
+}
+
+.animate-increase {
+    animation: increase 0.5s linear;
+}
+
+@keyframes decrease {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes increase {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.counter-wrapper {
+    width: 200px;
+    background: #202020;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.counter-progress {
+    position: absolute;
+    z-index: 1;
+    height: 40px;
+    left: 0;
+    top: 0;
+    background: #ed0f34;
+}
+
+.counter-interval {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    background: #ff8888;
+}
+
+.counter-text {
+    z-index: 2;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
