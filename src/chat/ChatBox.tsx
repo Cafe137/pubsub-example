@@ -1,6 +1,5 @@
-import { Types } from 'cafe-utility'
 import { useEffect, useState } from 'react'
-import { pubSub } from '../GlobalState'
+import { messageChannel, modalChannel } from '../GlobalState'
 
 export function ChatBox() {
     const [messages, setMessages] = useState<string[]>([])
@@ -15,16 +14,15 @@ export function ChatBox() {
             setMessages(messages)
         })
 
-        return pubSub.subscribe('message', data => {
+        return messageChannel.subscribe(data => {
             setMessages((messages: string[]) => {
-                return [...messages, Types.asString(data)]
+                return [...messages, data]
             })
         })
     }, [setMessages])
 
     function onPress(message: string) {
-        pubSub.publish(
-            'modal',
+        modalChannel.publish(
             <div>
                 <h2>Message modal</h2>
                 <p>{message}</p>

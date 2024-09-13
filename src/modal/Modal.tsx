@@ -1,13 +1,13 @@
 import { ReactNode, useEffect, useState } from 'react'
-import { pubSub } from '../GlobalState'
+import { modalChannel } from '../GlobalState'
 import './Modal.css'
 
 export function Modal() {
     const [data, setData] = useState<ReactNode | null>(null)
 
     useEffect(() => {
-        return pubSub.subscribe('modal', data => {
-            setData(data as ReactNode)
+        return modalChannel.subscribe(data => {
+            setData(data)
         })
     }, [])
 

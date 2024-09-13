@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { pubSub } from '../GlobalState'
+import { messageChannel } from '../GlobalState'
 
 export function ChatInput() {
     const [value, setValue] = useState<string>('')
 
     function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter' && value.trim()) {
-            pubSub.publish('message', value)
+            messageChannel.publish(value)
             setValue('')
         }
     }

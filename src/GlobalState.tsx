@@ -1,3 +1,5 @@
-import { PubSubSystem } from 'cafe-utility'
+import { PubSubChannel } from 'cafe-utility'
+import { ReactNode } from 'react'
 
-export const pubSub = new PubSubSystem()
+export const modalChannel = new PubSubChannel<ReactNode>()
+export const messageChannel = new PubSubChannel<string>()
